@@ -5,4 +5,7 @@
     xmlns:local="using:NotesApp"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <local:ViewModelLocator x:Key="Locator" />
+    </Application.Resources>
 </Application>

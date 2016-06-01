@@ -13,23 +13,20 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Die Vorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 dokumentiert.
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace NotesApp
 {
     /// <summary>
-    /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class AddNotePage : Page
     {
-        public MainPage()
+        public AddNotePage()
         {
             this.InitializeComponent();
         }
 
-        private void ButtonNewNote_OnClick(object sender, RoutedEventArgs e)
-        {
-            NoteNavigationService.Instance.NavigateTo(nameof(AddNotePage));
-        }
+        private NoteViewModel ViewModel => DataContext as NoteViewModel;
     }
 }

@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,6 +29,9 @@ namespace NotesApp
         /// </summary>
         public App()
         {
+            Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
+                Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
+                Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
@@ -63,6 +67,16 @@ namespace NotesApp
 
                 // Den Frame im aktuellen Fenster platzieren
                 Window.Current.Content = rootFrame;
+
+                SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+
+                rootFrame.Navigated += (sender, args) =>
+                {
+                    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility
+                        = rootFrame.CanGoBack
+                            ? AppViewBackButtonVisibility.Visible
+                            : AppViewBackButtonVisibility.Collapsed;
+                };
             }
 
             if (e.PrelaunchActivated == false)
@@ -76,6 +90,23 @@ namespace NotesApp
                 }
                 // Sicherstellen, dass das aktuelle Fenster aktiv ist
                 Window.Current.Activate();
+            }
+        }
+
+        public event EventHandler<BackRequestedEventArgs> OnBackRequested;
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            OnBackRequested?.Invoke(this, e);
+            if (e.Handled) return;
+
+            // Default is to navigate back within the Frame
+            Frame frame = Window.Current.Content as Frame;
+            if (frame != null && frame.CanGoBack)
+            {
+                frame.GoBack();
+                // Signal handled so that system doesn't navigate back through app stack
+                e.Handled = true;
             }
         }
 
