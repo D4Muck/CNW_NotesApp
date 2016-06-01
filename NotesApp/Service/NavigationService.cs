@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Views;
+﻿using GalaSoft.MvvmLight.Views;
 
-namespace NotesApp
+namespace NotesApp.Service
 {
     class NoteNavigationService
     {
@@ -15,8 +10,9 @@ namespace NotesApp
 
         private NoteNavigationService()
         {
-            NavigationService.Configure(nameof(MainPage), typeof(MainPage));
-            NavigationService.Configure(nameof(AddNotePage), typeof(AddNotePage));
+            NavigationService.Configure(nameof(View.MainPage), typeof(View.MainPage));
+            NavigationService.Configure(nameof(View.AddNotePage), typeof(View.AddNotePage));
+            NavigationService.Configure(nameof(View.ReadNotesPage), typeof(View.ReadNotesPage));
         }
 
         public void NavigateTo(string key)

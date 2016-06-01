@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NotesApp
+namespace NotesApp.Service
 {
     class NoteService
     {
@@ -19,6 +16,11 @@ namespace NotesApp
         public void AddNote(Note note)
         {
             _notes.Add(note);
+        }
+
+        public ReadOnlyCollection<Note> GetLast(int count)
+        {
+            return _notes.OrderByDescending(x => x.Time).Take(count).ToList().AsReadOnly();
         }
     }
 }

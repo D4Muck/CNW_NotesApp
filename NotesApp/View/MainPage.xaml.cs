@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using NotesApp.Service;
 
 // Die Vorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 dokumentiert.
 
-namespace NotesApp
+namespace NotesApp.View
 {
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
@@ -29,7 +18,12 @@ namespace NotesApp
 
         private void ButtonNewNote_OnClick(object sender, RoutedEventArgs e)
         {
-            NoteNavigationService.Instance.NavigateTo(nameof(AddNotePage));
+            NoteNavigationService.Instance.NavigateTo(nameof(View.AddNotePage));
+        }
+
+        private void ButtonReadNotes_OnClick(object sender, RoutedEventArgs e)
+        {
+            NoteNavigationService.Instance.NavigateTo(nameof(ReadNotesPage));
         }
     }
 }

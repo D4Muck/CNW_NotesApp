@@ -95,21 +95,25 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNotePage.xaml.cs">
+    <Compile Include="View\AddNotePage.xaml.cs">
       <DependentUpon>AddNotePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NavigationService.cs" />
-    <Compile Include="Note.cs" />
-    <Compile Include="NoteService.cs" />
-    <Compile Include="NoteViewModel.cs" />
+    <Compile Include="Service\NavigationService.cs" />
+    <Compile Include="Model\Note.cs" />
+    <Compile Include="Service\NoteService.cs" />
+    <Compile Include="ViewModel\AddNoteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="View\ReadNotesPage.xaml.cs">
+      <DependentUpon>ReadNotesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ReadNotesViewModel.cs" />
+    <Compile Include="Service\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -133,15 +137,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddNotePage.xaml">
+    <Page Include="View\AddNotePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReadNotesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
