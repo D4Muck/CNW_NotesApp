@@ -22,5 +22,10 @@ namespace NotesApp.Service
         {
             return _notes.OrderByDescending(x => x.Time).Take(count).ToList().AsReadOnly();
         }
+
+        public ReadOnlyCollection<Note> GetAllThatContain(string search)
+        {
+            return _notes.OrderByDescending(x => x.Time).Where(x => x.Text.Contains(search)).ToList().AsReadOnly();
+        }
     }
 }

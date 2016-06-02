@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
 
         <Button HorizontalAlignment="Stretch" Content="New Note" Click="ButtonNewNote_OnClick" />
-        <Button Grid.Row="1" HorizontalAlignment="Stretch" Content="Read Notes" Click="ButtonReadNotes_OnClick"/>
-        <Button Grid.Row="2" HorizontalAlignment="Stretch" Content="Settings" />
-        <Button Grid.Row="3" HorizontalAlignment="Stretch" Content="Search Notes" />
-
+        <Button Grid.Row="1" HorizontalAlignment="Stretch" Content="Read Notes" Click="ButtonReadNotes_OnClick" />
+        <Button Grid.Row="2" HorizontalAlignment="Stretch" Content="Settings" Click="ButtonSettings_OnClick" />
+        <Button Grid.Row="3" HorizontalAlignment="Stretch" Content="Search Notes" Click="ButtonSearchNotes_OnClick" />
+        <Image Grid.Row="4" Source="../Assets/note.png" />
     </Grid>
 </Page>

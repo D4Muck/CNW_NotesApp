@@ -7,5 +7,9 @@ namespace NotesApp.Service
         public AddNoteViewModel AddNoteViewModel => new AddNoteViewModel();
 
         public ReadNotesViewModel ReadNotesViewModel => new ReadNotesViewModel();
+
+        public SettingsViewModel SettingsViewModel => new SettingsViewModel();
+
+        public SearchNotesViewModel SearchNotesViewModel => new SearchNotesViewModel();
     }
 }

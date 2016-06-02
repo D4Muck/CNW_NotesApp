@@ -18,12 +18,22 @@ namespace NotesApp.View
 
         private void ButtonNewNote_OnClick(object sender, RoutedEventArgs e)
         {
-            NoteNavigationService.Instance.NavigateTo(nameof(View.AddNotePage));
+            NoteNavigationService.Instance.NavigateTo(nameof(AddNotePage));
         }
 
         private void ButtonReadNotes_OnClick(object sender, RoutedEventArgs e)
         {
             NoteNavigationService.Instance.NavigateTo(nameof(ReadNotesPage));
+        }
+
+        private void ButtonSettings_OnClick(object sender, RoutedEventArgs e)
+        {
+            NoteNavigationService.Instance.NavigateTo(nameof(SettingsPage));
+        }
+
+        private void ButtonSearchNotes_OnClick(object sender, RoutedEventArgs e)
+        {
+            NoteNavigationService.Instance.NavigateTo(nameof(SearchNotesPage));
         }
     }
 }
