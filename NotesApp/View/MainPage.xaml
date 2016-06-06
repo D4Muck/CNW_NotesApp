@@ -9,17 +9,28 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="50*" />
-            <RowDefinition Height="160*" />
+            <RowDefinition  />
+            <RowDefinition  />
         </Grid.RowDefinitions>
 
-        <Button HorizontalAlignment="Stretch" Content="New Note" Click="ButtonNewNote_OnClick" />
-        <Button Grid.Row="1" HorizontalAlignment="Stretch" Content="Read Notes" Click="ButtonReadNotes_OnClick" />
-        <Button Grid.Row="2" HorizontalAlignment="Stretch" Content="Settings" Click="ButtonSettings_OnClick" />
-        <Button Grid.Row="3" HorizontalAlignment="Stretch" Content="Search Notes" Click="ButtonSearchNotes_OnClick" />
-        <Image Grid.Row="4" Source="../Assets/note.png" />
+       <Image Grid.Row="0" Source="../Assets/note.png" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="New Note" Click="ButtonNewNote_OnClick" />
+            <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Read Notes" Click="ButtonReadNotes_OnClick" />
+            <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Settings" Click="ButtonSettings_OnClick" />
+            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Search Notes" Click="ButtonSearchNotes_OnClick" />
+        </Grid>
+        
     </Grid>
 </Page>

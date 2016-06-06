@@ -36,5 +36,10 @@ namespace NotesApp.ViewModel
             NoteService.Instance.AddNote(Note);
             Note = new Note();
         }
+
+        public void DiscardNote()
+        {
+            Note.Text = "";
+        }
     }
 }

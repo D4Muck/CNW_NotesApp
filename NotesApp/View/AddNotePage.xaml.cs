@@ -29,16 +29,19 @@ namespace NotesApp.View
             {
                 if (ViewModel.CanAddNote)
                 {
-                    var dialog = new MessageDialog("Your note will not be saved if you are leaving!");
-                    dialog.Commands.Add(new UICommand("I don't care") {Id = 0});
-                    dialog.Commands.Add(new UICommand("Abort") {Id = 1});
+                    args.Handled = true;
+
+                    var dialog = new MessageDialog("You have unsaved changes! If you dont't want to save your note, discard it before going back!");
+                    dialog.Title = "Unsaved Changes";
+                    dialog.Commands.Add(new UICommand("Ok") {Id = 0});
 
                     dialog.DefaultCommandIndex = 0;
-                    dialog.CancelCommandIndex = 1;
+                    dialog.CancelCommandIndex = 0;
 
 
-                    //var result = await dialog.ShowAsync();
-                    //if (result != null) args.Handled = (((int) result.Id) == 0);
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                    dialog.ShowAsync();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                 }
             };
         }

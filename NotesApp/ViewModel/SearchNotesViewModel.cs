@@ -10,7 +10,12 @@ namespace NotesApp.ViewModel
 {
     class SearchNotesViewModel
     {
-        private string _searchText;
+        public SearchNotesViewModel()
+        {
+            UpdateNotes();
+        }
+
+        private string _searchText = "";
 
         public string SearchText
         {
