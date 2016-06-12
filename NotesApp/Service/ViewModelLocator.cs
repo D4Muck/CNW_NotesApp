@@ -11,5 +11,7 @@ namespace NotesApp.Service
         public SettingsViewModel SettingsViewModel => new SettingsViewModel();
 
         public SearchNotesViewModel SearchNotesViewModel => new SearchNotesViewModel();
+
+        public EditNoteViewModel EditNoteViewModel => new EditNoteViewModel();
     }
 }

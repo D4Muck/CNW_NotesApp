@@ -16,6 +16,10 @@
             <TextBox InputScope="Number" Text="{Binding NotesShown,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock>Check for Ascending, else Descending</TextBlock>
             <CheckBox IsChecked="{Binding Ascending,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <StackPanel Orientation="Horizontal">
+                <Button Click="{x:Bind ViewModel.PersistData}">Persist Data</Button>
+                <Button Click="{x:Bind ViewModel.LoadData}">Load Data</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

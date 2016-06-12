@@ -1,26 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using NotesApp.Model;
 
 namespace NotesApp.Service
 {
     class NoteService
     {
-        private readonly List<Note> _notes = new List<Note>();
-
-        public static NoteService Instance { get; } = new NoteService();
-
-        public ReadOnlyCollection<Note> Notes => _notes.AsReadOnly();
-
-
-        public void AddNote(Note note)
-        {
-            _notes.Add(note);
-        }
+        public static NoteService Instance { get; internal set; } = new NoteService();
+        
+        public List<Note> Notes { get; } = new List<Note>();
 
         private IEnumerable<Note> GetOrdered()
         {
-            return SettingsService.Instance.Ascending ? _notes.OrderBy(x => x.Time) : _notes.OrderByDescending(x => x.Time);
+            return SettingsService.Instance.Ascending
+                ? Notes.OrderBy(x => x.Time)
+                : Notes.OrderByDescending(x => x.Time);
         }
 
         public ReadOnlyCollection<Note> GetLast(int count)

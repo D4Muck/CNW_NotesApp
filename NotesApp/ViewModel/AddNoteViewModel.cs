@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using GalaSoft.MvvmLight;
+using NotesApp.Model;
 using NotesApp.Service;
 
 namespace NotesApp.ViewModel
@@ -33,7 +34,7 @@ namespace NotesApp.ViewModel
 
         public void AddNote()
         {
-            NoteService.Instance.AddNote(Note);
+            NoteService.Instance.Notes.Add(Note);
             Note = new Note();
         }
 

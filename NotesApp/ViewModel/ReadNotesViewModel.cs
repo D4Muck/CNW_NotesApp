@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
+using NotesApp.Model;
 using NotesApp.Service;
 
 namespace NotesApp.ViewModel

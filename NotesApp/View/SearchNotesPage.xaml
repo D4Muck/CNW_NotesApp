@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:notesApp="using:NotesApp"
+    xmlns:model="using:NotesApp.Model"
     mc:Ignorable="d"
     DataContext="{Binding SearchNotesViewModel, Source={StaticResource Locator}}">
 
@@ -16,9 +17,9 @@
         </Grid.RowDefinitions>
         <TextBox Grid.Row="0" Text="{Binding SearchText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                  KeyDown="{x:Bind ViewModel.UpdateNotes}" />
-        <ListBox Grid.Row="1" ItemsSource="{x:Bind ViewModel.Notes}">
+        <ListBox Grid.Row="1" ItemsSource="{x:Bind ViewModel.Notes}" SelectionChanged="Notes_OnSelectionChanged">
             <ListBox.ItemTemplate>
-                <DataTemplate x:DataType="notesApp:Note">
+                <DataTemplate x:DataType="model:Note">
                     <StackPanel>
                         <TextBlock Text="{x:Bind Time}" />
                         <TextBlock Text="{x:Bind Text}" />

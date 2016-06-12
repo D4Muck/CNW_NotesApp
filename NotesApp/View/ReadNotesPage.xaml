@@ -5,12 +5,13 @@
     xmlns:local="using:NotesApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:NotesApp.Model"
     mc:Ignorable="d"
     DataContext="{Binding ReadNotesViewModel, Source={StaticResource Locator}}">
 
-    <ListBox ItemsSource="{x:Bind ViewModel.Notes}">
+    <ListBox ItemsSource="{x:Bind ViewModel.Notes}" SelectionChanged="Notes_OnSelectionChanged">
         <ListBox.ItemTemplate>
-            <DataTemplate x:DataType="local:Note">
+            <DataTemplate x:DataType="model:Note">
                 <StackPanel>
                     <TextBlock Text="{x:Bind Time}" />
                     <TextBlock Text="{x:Bind Text}" />

@@ -15,11 +15,22 @@ namespace NotesApp.Service
             NavigationService.Configure(nameof(View.ReadNotesPage), typeof(View.ReadNotesPage));
             NavigationService.Configure(nameof(View.SettingsPage), typeof(View.SettingsPage));
             NavigationService.Configure(nameof(View.SearchNotesPage), typeof(View.SearchNotesPage));
+            NavigationService.Configure(nameof(View.EditNotePage), typeof(View.EditNotePage));
         }
 
         public void NavigateTo(string key)
         {
             NavigationService.NavigateTo(key);
+        }
+
+        public void NavigateTo(string key, object parameter)
+        {
+            NavigationService.NavigateTo(key, parameter);
+        }
+
+        public void GoBack()
+        {
+            NavigationService.GoBack();
         }
     }
 }

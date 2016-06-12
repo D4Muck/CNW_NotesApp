@@ -38,5 +38,17 @@ namespace NotesApp.ViewModel
                 _ascending = value;
             }
         }
+
+        public void PersistData()
+        {
+            SettingsService.SaveData();
+        }
+
+        public void LoadData()
+        {
+            SettingsService.LoadData();
+            NotesShown = SettingsService.Instance.NotesShown.ToString();
+            Ascending = SettingsService.Instance.Ascending;
+        }
     }
 }
