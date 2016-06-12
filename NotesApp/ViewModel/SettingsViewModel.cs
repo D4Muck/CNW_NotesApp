@@ -12,6 +12,7 @@ namespace NotesApp.ViewModel
     class SettingsViewModel : ViewModelBase
     {
         private string _notesShown = SettingsService.Instance.NotesShown.ToString();
+        private bool _ascending = SettingsService.Instance.Ascending;
 
 
         public string NotesShown
@@ -25,6 +26,16 @@ namespace NotesApp.ViewModel
                     SettingsService.Instance.NotesShown = number;
                 }
                 _notesShown = value;
+            }
+        }
+
+        public bool Ascending
+        {
+            get { return _ascending; }
+            set
+            {
+                SettingsService.Instance.Ascending = value;
+                _ascending = value;
             }
         }
     }

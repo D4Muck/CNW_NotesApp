@@ -11,5 +11,7 @@ namespace NotesApp.Service
         public static SettingsService Instance { get; } = new SettingsService();
 
         public int NotesShown { get; set; } = 5;
+
+        public bool Ascending { get; set; } = false;
     }
 }

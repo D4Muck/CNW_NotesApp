@@ -18,14 +18,19 @@ namespace NotesApp.Service
             _notes.Add(note);
         }
 
+        private IEnumerable<Note> GetOrdered()
+        {
+            return SettingsService.Instance.Ascending ? _notes.OrderBy(x => x.Time) : _notes.OrderByDescending(x => x.Time);
+        }
+
         public ReadOnlyCollection<Note> GetLast(int count)
         {
-            return _notes.OrderByDescending(x => x.Time).Take(count).ToList().AsReadOnly();
+            return GetOrdered().Take(count).ToList().AsReadOnly();
         }
 
         public ReadOnlyCollection<Note> GetAllThatContain(string search)
         {
-            return _notes.OrderByDescending(x => x.Time).Where(x => x.Text.Contains(search)).ToList().AsReadOnly();
+            return GetOrdered().Where(x => x.Text.Contains(search)).ToList().AsReadOnly();
         }
     }
 }
