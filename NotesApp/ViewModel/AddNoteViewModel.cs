@@ -30,11 +30,11 @@ namespace NotesApp.ViewModel
 
         private void NotePropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-            if (args.PropertyName == nameof(Note.Text) || args.PropertyName == nameof(Note.Geopoint))
+            if (args.PropertyName == nameof(Note.Text) || args.PropertyName == nameof(Note.Position))
                 RaisePropertyChanged(nameof(CanAddNote));
         }
 
-        public bool CanAddNote => !string.IsNullOrWhiteSpace(Note.Text) && Note.Geopoint != null;
+        public bool CanAddNote => !string.IsNullOrWhiteSpace(Note.Text) && Note.Position != null;
 
         public void AddNote()
         {
@@ -48,7 +48,7 @@ namespace NotesApp.ViewModel
             Note.Text = "";
         }
 
-        public async void GetCurrentLocation()
+        private async void GetCurrentLocation()
         {
             var access = await Geolocator.RequestAccessAsync();
 
@@ -57,7 +57,7 @@ namespace NotesApp.ViewModel
                 case GeolocationAccessStatus.Allowed:
                     var geolocator = new Geolocator();
                     var geopositon = await geolocator.GetGeopositionAsync();
-                    Note.Geopoint = geopositon.Coordinate.Point;
+                    Note.Position = geopositon.Coordinate.Point.Position;
                     break;
                 case GeolocationAccessStatus.Unspecified:
                 case GeolocationAccessStatus.Denied:

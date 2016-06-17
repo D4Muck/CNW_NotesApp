@@ -12,6 +12,6 @@ namespace NotesApp.Model
     {
         public string Text { get; set; }
         public DateTime Time { get; set; } = DateTime.Now;
-        public Geopoint Geopoint { get; set; }
+        public BasicGeoposition? Position { get; set; }
     }
 }

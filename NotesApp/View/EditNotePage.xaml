@@ -30,7 +30,7 @@
             </CommandBar.SecondaryCommands>
 
             <CommandBar.Content>
-                <TextBlock Text="Add Note" Margin="12,14" />
+                <TextBlock Text="Edit Note" Margin="12,14" />
             </CommandBar.Content>
         </CommandBar>
     </Grid>
