@@ -24,7 +24,7 @@ namespace NotesApp.View
         private void Notes_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var first = e.AddedItems.First() as Note;
-            if (first != null) NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), first.Time);
+            if (first != null) NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), first);
         }
     }
 }

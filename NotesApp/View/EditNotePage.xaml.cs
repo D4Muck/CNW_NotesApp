@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using NotesApp.Model;
 using NotesApp.Service;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -33,23 +34,8 @@ namespace NotesApp.View
         {
             base.OnNavigatedTo(e);
 
-            var id = e.Parameter as DateTime? ?? new DateTime();
-
-            ViewModel.NoteId = id;
-        }
-
-        private EditNoteViewModel ViewModel => DataContext as EditNoteViewModel;
-
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
-        {
-            ViewModel.DeleteNote();
-            NoteNavigationService.Instance.GoBack();
-        }
-
-        private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
-        {
-            ViewModel.SaveNote();
-            NoteNavigationService.Instance.GoBack();
+            var note = e.Parameter as Note;
+            NoteDetail.Note = note;
         }
     }
 }

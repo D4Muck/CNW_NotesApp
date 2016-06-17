@@ -7,31 +7,5 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <Binding Path="EditNoteViewModel" Source="{StaticResource Locator}" />
-    </Page.DataContext>
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="{x:Bind ViewModel.Note.Time, Mode=OneWay}" />
-        <TextBox Grid.Row="2" Text="{Binding Note.Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                 TextWrapping="Wrap" AcceptsReturn="True" />
-        <CommandBar Grid.Row="0">
-
-            <AppBarButton Icon="Save" Label="Save" IsEnabled="{x:Bind ViewModel.CanSaveNote,Mode=OneWay}"
-                          Click="ButtonSave_OnClick" />
-
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Delete" Label="Delete" Click="ButtonDelete_OnClick" />
-            </CommandBar.SecondaryCommands>
-
-            <CommandBar.Content>
-                <TextBlock Text="Edit Note" Margin="12,14" />
-            </CommandBar.Content>
-        </CommandBar>
-    </Grid>
+    <local:NoteDetailUserControl x:Name="NoteDetail" />
 </Page>

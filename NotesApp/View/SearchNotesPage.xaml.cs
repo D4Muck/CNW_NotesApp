@@ -66,7 +66,7 @@ namespace NotesApp.View
             if (isNarrow && oldState == DefaultState && _lastSelectedItem != null)
             {
                 // Resize down to the detail item. Don't play a transition.
-                NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), _lastSelectedItem.Time);
+                NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), _lastSelectedItem);
             }
 
             EntranceNavigationTransitionInfo.SetIsTargetElement(MasterListView, isNarrow);
@@ -84,7 +84,7 @@ namespace NotesApp.View
             if (AdaptiveStates.CurrentState == NarrowState)
             {
                 // Use "drill in" transition for navigating from master list to detail view
-                NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), _lastSelectedItem.Time);
+                NoteNavigationService.Instance.NavigateTo(nameof(EditNotePage), _lastSelectedItem);
             }
             else
             {
@@ -101,13 +101,13 @@ namespace NotesApp.View
 
         private void EnableContentTransitions()
         {
-            DetailContentPresenter.ContentTransitions.Clear();
-            DetailContentPresenter.ContentTransitions.Add(new EntranceThemeTransition());
+           // DetailContentPresenter.ContentTransitions.Clear();
+           // DetailContentPresenter.ContentTransitions.Add(new EntranceThemeTransition());
         }
 
         private void DisableContentTransitions()
         {
-            DetailContentPresenter?.ContentTransitions.Clear();
+            //DetailContentPresenter?.ContentTransitions.Clear();
         }
     }
 }
