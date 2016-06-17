@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 using GalaSoft.MvvmLight;
 
 namespace NotesApp.Model
@@ -7,5 +12,6 @@ namespace NotesApp.Model
     {
         public string Text { get; set; }
         public DateTime Time { get; set; } = DateTime.Now;
+        public Geopoint Geopoint { get; set; }
     }
 }
