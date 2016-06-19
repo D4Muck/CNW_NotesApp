@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:model="using:NotesApp.Model"
+      xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
       mc:Ignorable="d"
       DataContext="{Binding SearchNotesViewModel, Source={StaticResource Locator}}">
 
@@ -28,6 +29,8 @@
                 <TextBlock Text="{Binding Text}" />
             </StackPanel>
         </DataTemplate>
+
+        <my:NullToBoolConverter x:Key="NullToBoolConverter" />
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="LayoutRoot"
@@ -81,10 +84,29 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <my:NoteDetailUserControl x:Name="DetailContentPresenter" Grid.Column="1"
-                                  Grid.RowSpan="2"
-                                  Note="{Binding SelectedItem,ElementName=MasterListView , Mode=OneWay}" />
+        <Grid Grid.Column="1"
+              Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <CommandBar Grid.Row="0">
+                <AppBarButton Icon="Edit"
+                              IsEnabled="{Binding SelectedItem,ElementName=MasterListView,Mode=OneWay,Converter={StaticResource NullToBoolConverter}}"
+                              Label="Edit Note" Click="ButtonEdit_OnClick" />
+
+                <CommandBar.Content>
+                    <TextBlock Text="Note Detail" Margin="12,14" />
+                </CommandBar.Content>
+            </CommandBar>
+            <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource NoteDetailTemplate}"
+                              Content="{Binding SelectedItem,ElementName=MasterListView , Mode=OneWay}"
+                              x:Name="DetailContentPresenter" />
+            <maps:MapControl Grid.Row="2" x:Name="map"
+                             ZoomLevel="5" />
 
 
+        </Grid>
     </Grid>
 </Page>

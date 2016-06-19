@@ -7,5 +7,5 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <local:NoteDetailUserControl x:Name="NoteDetail" />
+    <local:EditNoteUserControl x:Name="NoteDetail" />
 </Page>

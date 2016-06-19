@@ -114,8 +114,11 @@
     <Compile Include="Service\NoteService.cs" />
     <Compile Include="ViewModel\AddNoteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\NoteDetailUserControl.xaml.cs">
-      <DependentUpon>NoteDetailUserControl.xaml</DependentUpon>
+    <Compile Include="View\EditNoteUserControl.xaml.cs">
+      <DependentUpon>EditNoteUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NoteDetailPage.xaml.cs">
+      <DependentUpon>NoteDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReadNotesPage.xaml.cs">
       <DependentUpon>ReadNotesPage.xaml</DependentUpon>
@@ -136,6 +139,7 @@
     <None Include="NotesApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\pin.png" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="Assets\note.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -164,7 +168,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\NoteDetailUserControl.xaml">
+    <Page Include="View\EditNoteUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NoteDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

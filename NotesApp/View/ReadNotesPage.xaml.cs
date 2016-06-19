@@ -17,6 +17,8 @@ namespace NotesApp.View
         public ReadNotesPage()
         {
             this.InitializeComponent();
+
+            ViewModel.init();
         }
 
         private ReadNotesViewModel ViewModel => DataContext as ReadNotesViewModel;

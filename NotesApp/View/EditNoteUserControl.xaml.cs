@@ -20,19 +20,19 @@ using NotesApp.ViewModel;
 
 namespace NotesApp.View
 {
-    public sealed partial class NoteDetailUserControl : UserControl
+    public sealed partial class EditNoteUserControl : UserControl
     {
         public static readonly DependencyProperty NoteProperty =
-            DependencyProperty.Register("Note", typeof(Note), typeof(NoteDetailUserControl),
+            DependencyProperty.Register("Note", typeof(Note), typeof(EditNoteUserControl),
                 new PropertyMetadata(null, NoteChanged));
 
         private static void NoteChanged(DependencyObject dependencyObject,
             DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var userControl = dependencyObject as NoteDetailUserControl;
+            var userControl = dependencyObject as EditNoteUserControl;
             if (userControl != null && dependencyPropertyChangedEventArgs.NewValue != null)
             {
-                userControl.ViewModel.NoteId = userControl.Note.Time;
+                userControl.ViewModel.PersitstedNote = userControl.Note;
             }
         }
 
@@ -54,7 +54,7 @@ namespace NotesApp.View
             ViewModel.SaveNote();
         }
 
-        public NoteDetailUserControl()
+        public EditNoteUserControl()
         {
             this.InitializeComponent();
         }

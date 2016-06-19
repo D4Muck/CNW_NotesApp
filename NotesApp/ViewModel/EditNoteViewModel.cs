@@ -10,13 +10,13 @@ namespace NotesApp.ViewModel
     class EditNoteViewModel : ViewModelBase
     {
         private Note _note;
-        private DateTime _noteId;
         private Note _persitstedNote;
 
         public EditNoteViewModel()
         {
             Note = new Note();
         }
+
 
         public Note Note
         {
@@ -36,27 +36,26 @@ namespace NotesApp.ViewModel
 
         public bool CanSaveNote => !string.IsNullOrWhiteSpace(Note.Text);
 
-        public DateTime NoteId
+        public Note PersitstedNote
         {
-            get { return _noteId; }
+            get { return _persitstedNote; }
             set
             {
-                _persitstedNote = NoteService.Instance.Notes.First(x => x.Time == value);
-                Note.Text = _persitstedNote.Text;
-                Note.Time = _persitstedNote.Time;
-                _noteId = value;
+                _persitstedNote = value;
+                Note.Text = PersitstedNote.Text;
             }
         }
 
         public void SaveNote()
         {
-            _persitstedNote.Text = Note.Text;
+            PersitstedNote.Text = Note.Text;
+            NoteService.Instance.AddNote(PersitstedNote);
             Note = new Note();
         }
 
         public void DeleteNote()
         {
-            NoteService.Instance.Notes.Remove(_persitstedNote);
+            NoteService.Instance.RemoveNote(PersitstedNote);
         }
     }
 }

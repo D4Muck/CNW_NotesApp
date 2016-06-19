@@ -14,6 +14,8 @@ namespace NotesApp.Service
 
         public bool Ascending { get; set; } = false;
 
+        public string TenantId { get; } = "S1520237045";
+
         public static void SaveData()
         {
             LocalStorageService.Write("settings", Instance);

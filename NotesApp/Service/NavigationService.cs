@@ -16,6 +16,7 @@ namespace NotesApp.Service
             NavigationService.Configure(nameof(View.SettingsPage), typeof(View.SettingsPage));
             NavigationService.Configure(nameof(View.SearchNotesPage), typeof(View.SearchNotesPage));
             NavigationService.Configure(nameof(View.EditNotePage), typeof(View.EditNotePage));
+            NavigationService.Configure(nameof(View.NoteDetailPage), typeof(View.NoteDetailPage));
         }
 
         public void NavigateTo(string key)

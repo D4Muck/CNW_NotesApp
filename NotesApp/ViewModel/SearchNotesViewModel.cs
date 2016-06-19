@@ -30,12 +30,12 @@ namespace NotesApp.ViewModel
 
         public ObservableCollection<Note> Notes { get; } = new ObservableCollection<Note>();
 
-        public void UpdateNotes()
+        public async void UpdateNotes()
         {
             if (SearchText != null)
             {
                 Notes.Clear();
-                foreach (var note in NoteService.Instance.GetAllThatContain(SearchText))
+                foreach (var note in await NoteService.Instance.GetAllThatContain(SearchText))
                 {
                     Notes.Add(note);
                 }
