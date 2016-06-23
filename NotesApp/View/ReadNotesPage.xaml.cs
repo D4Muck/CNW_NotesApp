@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using GalaSoft.MvvmLight.Views;
 using NotesApp.Model;
 using NotesApp.Service;
@@ -17,7 +18,11 @@ namespace NotesApp.View
         public ReadNotesPage()
         {
             this.InitializeComponent();
+        }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
             ViewModel.init();
         }
 

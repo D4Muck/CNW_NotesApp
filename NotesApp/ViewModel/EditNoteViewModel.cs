@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using NotesApp.Model;
 using NotesApp.Service;
@@ -46,16 +47,16 @@ namespace NotesApp.ViewModel
             }
         }
 
-        public void SaveNote()
+        public async Task SaveNote()
         {
             PersitstedNote.Text = Note.Text;
-            NoteService.Instance.AddNote(PersitstedNote);
+            await NoteService.Instance.AddNote(PersitstedNote);
             Note = new Note();
         }
 
-        public void DeleteNote()
+        public async Task DeleteNote()
         {
-            NoteService.Instance.RemoveNote(PersitstedNote);
+            await NoteService.Instance.RemoveNote(PersitstedNote);
         }
     }
 }

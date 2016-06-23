@@ -35,5 +35,10 @@ namespace NotesApp.View
         {
             NoteNavigationService.Instance.NavigateTo(nameof(SearchNotesPage));
         }
+
+        private void ButtonAllNotes_OnClick(object sender, RoutedEventArgs e)
+        {
+            NoteNavigationService.Instance.NavigateTo(nameof(AllNotesPage));
+        }
     }
 }

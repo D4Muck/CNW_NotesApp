@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="NotesApp.View.AllNotesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NotesApp.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:model="using:NotesApp.Model"
+    mc:Ignorable="d">
+
+    <maps:MapControl x:Name="map" ZoomLevel="5">
+        <maps:MapItemsControl ItemsSource="{x:Bind Notes}">
+            <maps:MapItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="model:Note">
+                    <Button Click="ButtonBase_OnClick"  BorderBrush="Transparent" Background="Transparent" maps:MapControl.Location="{x:Bind Geopoint}"
+                            maps:MapControl.NormalizedAnchorPoint="0.5 1">
+                        <Grid>
+                            <Image Source="../Assets/pin.png" />
+                            <TextBlock Text="{Binding Text}" />
+                        </Grid>
+                    </Button>
+                </DataTemplate>
+            </maps:MapItemsControl.ItemTemplate>
+        </maps:MapItemsControl>
+    </maps:MapControl>
+</Page>

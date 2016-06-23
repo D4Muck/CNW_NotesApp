@@ -16,8 +16,9 @@ namespace NotesApp.ViewModel
 
         public async void init()
         {
-            ReadOnlyCollection<Note> notes = await NoteService.Instance.GetLast(SettingsService.Instance.NotesShown);
-            foreach (var note in notes)
+            var task = NoteService.Instance.GetLast(SettingsService.Instance.NotesShown);
+            Notes.Clear();
+            foreach (var note in await task)
             {
                 Notes.Add(note);
             }

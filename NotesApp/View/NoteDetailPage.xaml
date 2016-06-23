@@ -29,14 +29,13 @@
                 <maps:MapItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="model:Note">
                         <Grid maps:MapControl.Location="{x:Bind Geopoint}"
-                              maps:MapControl.NormalizedAnchorPoint="0.5 1">
+                          maps:MapControl.NormalizedAnchorPoint="0.5 1">
                             <Image Source="../Assets/pin.png" />
                             <TextBlock Text="{Binding Text}" />
                         </Grid>
                     </DataTemplate>
                 </maps:MapItemsControl.ItemTemplate>
             </maps:MapItemsControl>
-
         </maps:MapControl>
     </Grid>
 </Page>

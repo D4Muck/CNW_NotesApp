@@ -44,14 +44,16 @@ namespace NotesApp.View
             set { SetValue(NoteProperty, value); }
         }
 
-        private void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
+        private async void ButtonDelete_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.DeleteNote();
+            await ViewModel.DeleteNote();
+            NoteNavigationService.Instance.GoBack();
         }
 
-        private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
+        private async void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
-            ViewModel.SaveNote();
+            await ViewModel.SaveNote();
+            NoteNavigationService.Instance.GoBack();
         }
 
         public EditNoteUserControl()

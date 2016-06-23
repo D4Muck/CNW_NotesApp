@@ -103,6 +103,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AllNotesPage.xaml.cs">
+      <DependentUpon>AllNotesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EditNotePage.xaml.cs">
       <DependentUpon>EditNotePage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="View\AddNotePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AllNotesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
